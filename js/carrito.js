@@ -1,6 +1,8 @@
+let infoDelLs = JSON.parse(localStorage.getItem("carrito"))
+
 function cardsHtml ( array ) {
     
-    const contenedor = document.querySelector(".container")
+    const contenedor = document.querySelector(".carrito-contenedor")
 
     array.map( ( productos ) => {
         const card = document.createElement("div")
@@ -17,11 +19,8 @@ function cardsHtml ( array ) {
                 $${productos.precio}
             </h3>
             <div class="divbuttons">
-                <button class="likebutton">
-                    ♥
-                </button>
                 <button id="boton-${productos.id}" class="likebutton2">
-                    🛒
+                    ❌
                 </button>
             </div>
         `
@@ -30,28 +29,33 @@ function cardsHtml ( array ) {
 
 }
 
-cardsHtml(productos)
+cardsHtml(infoDelLs || [])
 
 
-// CARRITO DE COMPRAS - AÑADIR + LOCALSTORAGE
-
-let carrito = []
-
-function aniadirAlCarrito (array) {
+function borrarDelCarrito (array) {
     const botonAniadir = document.querySelectorAll(".likebutton2")
     botonAniadir.forEach( boton => {
         boton.onclick = () => {
             const id = boton.id.slice(6)
-            const filtrarProducto = array.find((elemento) => {
-                return elemento.id === Number(id)
+            const filtrarProducto = array.filter((elemento, i) => {
+                return elemento.id != Number(id)
             })
-            carrito.push(filtrarProducto)
-            console.log(carrito)
-            localStorage.setItem("carrito", JSON.stringify(carrito))
+            infoDelLs = filtrarProducto
+            localStorage.setItem("carrito", JSON.stringify(infoDelLs))
+            console.log(infoDelLs)
+            cardsHtml(infoDelLs)
+            borrarDelCarrito(infoDelLs)
+
+            
         }
     })
 }
 
-aniadirAlCarrito(productos)
+borrarDelCarrito(infoDelLs )
 
-const productosElegidos = JSON.parse(localStorage.getItem("carrito"))
+const botonBorrarTodo = document.querySelector("#borrar-productos")
+
+botonBorrarTodo.onclick = () => {
+    localStorage.removeItem("carrito")
+    document.querySelector("carrito-contenedor").innerHTML = "No hay productos"
+}

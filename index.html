@@ -11,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/librerias.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 </head>
 <body class="modo-oscuro">
                             <!-- ENCABEZADO -->
@@ -20,7 +22,7 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="assets/pages/productos.html">Productos</a></li>
-                <li><a href="#">Carrito</a></li>
+                <li><a href="assets/pages/carrito.html">Carrito</a></li>
                 <li><a href="assets/pages/contacto.html">Contáctanos</a></li>
             </ul>
             <button type="button" class="navbutton" id="claro-oscuro">Modo claro</button>
@@ -29,6 +31,23 @@
         </div>
     </div>
     
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="assets/imgs/Vacaciones.jpg" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="assets/imgs/Tarjetas.jpg" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="assets/imgs/sugerenciainsta.jpg" alt="">
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
     <div class="row">
         <div class="col">
             <h1 class="colh1">Qué somos?</h1>
@@ -80,9 +99,12 @@
         <span class="copyright">&copy;2022 Cheetah's Market. Todos los derechos reservados.</span>
     </footer>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> 
+    <script src="js/librerias.js"></script>
     <script src="js/index.js"></script>
+
 
 </body>
 </html>

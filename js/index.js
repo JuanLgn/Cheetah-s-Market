@@ -67,5 +67,5 @@ logout.onclick = () => {
     console.log("me hacen click")
     validarLogin(obtenerDelLs("login"))
     formLogin.reset()
-}
+} 
 
